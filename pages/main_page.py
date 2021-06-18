@@ -9,9 +9,13 @@ from pages.base_page import BasePage  # в исходном варианте к�
 
 from selenium.webdriver.common.by import By
 
+from pages.locators import MainPageLocators
+
+from pages.login_page import LoginPage
+
 class MainPage(BasePage):
     def go_to_login_page(self):
-        login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
 
 
