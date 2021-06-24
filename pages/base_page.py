@@ -8,16 +8,19 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage():
-    def __init__(self, browser, url):
-        self.browser = browser
-        self.url = url
-    def open(self):
+    #def __init__(self, browser, url): # создаем конструктор. В качестве параметров мы передаем экземпляр драйвера и url адрес
+        #self.browser = browser
+        #self.url = url
+
+    def open(self):                  # метод для открытия страницы в браузере
         self.browser.get(self.url)
-    def __init__(self, browser, url, timeout=10):
+
+    def __init__(self, browser, url, timeout=10): # создаем конструктор. В качестве параметров мы передаем экземпляр драйвера и url адрес
         self.browser = browser
         self.url = url
         #self.browser.implicitly_wait(timeout)
-    def is_element_present(self, how, what):
+
+    def is_element_present(self, how, what):  # метод для проверки присутствия элемента на странице
         try:
             self.browser.find_element(how,what)
         except (NoSuchElementException):
@@ -25,11 +28,11 @@ class BasePage():
         return True
 
 
-    def go_to_login_page(self):
+    def go_to_login_page(self):               # метод для перехода на страницу логина
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
-    def should_be_login_link(self):
+    def should_be_login_link(self):          # метод для проверки наличия ссылки на страницу логина
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
 # метод, который проверяет, что элемент не появляется на странице в течение заданного времени.
@@ -54,7 +57,7 @@ class BasePage():
         return True
 
 
-    def go_to_basket (self):
+    def go_to_basket (self):                    # метод для перехода в корзину по кнопке из Header
         look_in_basket = self.browser.find_element(*BasePageLocators.LOOK_IN_BASKET)
         look_in_basket.click()
 

@@ -28,7 +28,7 @@ from pages.login_page import LoginPage
 
 
 
-class MainPage(BasePage):
+class MainPage(BasePage):   # дописываем заглушку, потому что все методы перенесли в base_page.py
     def __init__(self, *args, **kwargs):
         super(MainPage, self).__init__(*args, **kwargs)
 
