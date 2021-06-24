@@ -6,10 +6,16 @@ from selenium.webdriver.support import expected_conditions as EC
 
     
 class BasketPage(BasePage):
-    def no_books_in_basket(self):       # метод для проверки наличия книг в корзине
+
+# метод для проверки наличия книг в корзине
+
+    def no_books_in_basket(self):       
         assert self.is_not_element_present(*BasketPageLocators.BOOKS_IN_BASKET), \
         "Books in the basket is presented, but should not be"
-    def empty_basket_message(self):    # метод для проверки присутсвия сообщения о том, что корзина пуста
+
+# метод для проверки присутсвия сообщения о том, что корзина пуста
+
+    def empty_basket_message(self):   
         assert self.is_element_present(*BasketPageLocators.EMPTY_BASKET_MESSAGE), \
         "Basket not empty, but should be" 
     

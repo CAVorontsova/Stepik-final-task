@@ -1,13 +1,15 @@
 from selenium.webdriver.common.by import By
 
-#class MainPageLocators():
-    #LOGIN_LINK = (By.CSS_SELECTOR, "#login_link") # элемент с ссылкой на страницу логина
-
 # класс для проверки наличия форм для логина и регистрации пользователя
 
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form") # элемент с формой для входа в аккаунт
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form") # элемент с формой для регистрации
+    REGISTER_FORM_EMAIL= (By.CSS_SELECTOR, "#id_registration-email") # поле для ввода email при регистрации пользователя
+    REGISTER_FORM_PASSWORD= (By.CSS_SELECTOR, "#id_registration-password1") # поле для ввода пароля при регистрации пользователя
+    REGISTER_FORM_PASSWORD2= (By.CSS_SELECTOR, "#id_registration-password2") # поле для ввода подтверждения пароля при регистрации пользователя
+    REGISTER_FORM_BUTTON = (By.NAME, "registration_submit")
+
 
 # класс для проверки добавления товара в корзину
 
@@ -25,6 +27,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     LOOK_IN_BASKET = (By.CSS_SELECTOR, "span.btn-group a.btn-default")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 # класс для проверки пустой корзины
 

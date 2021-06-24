@@ -8,8 +8,7 @@ from pages.login_page import LoginPage
 class TestLoginFromMainPage(): # вводим класс для группировки тестов связанных с одним компонентом
 
 # поиск кнопки для логина и перехода на страницу логина вынесен в отдельное действие
-# поскольку функция go_to_login_page не начинается с test, то python ее пропустит и она не будет выполняться первой.
-# Вызов идет из функции test_guest_can_go_to_login_page 
+# поскольку функция go_to_login_page не начинается с test, то python ее пропустит и она не будет выполняться
 
     def test_guest_can_go_to_login_page(self,browser):
         link = "http://selenium1py.pythonanywhere.com/"

@@ -1,4 +1,3 @@
-
 from pages.locators import BasePageLocators
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
@@ -8,17 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage():
-    #def __init__(self, browser, url): # создаем конструктор. В качестве параметров мы передаем экземпляр драйвера и url адрес
-        #self.browser = browser
-        #self.url = url
-
     def open(self):                  # метод для открытия страницы в браузере
         self.browser.get(self.url)
 
     def __init__(self, browser, url, timeout=10): # создаем конструктор. В качестве параметров мы передаем экземпляр драйвера и url адрес
         self.browser = browser
         self.url = url
-        #self.browser.implicitly_wait(timeout)
 
     def is_element_present(self, how, what):  # метод для проверки присутствия элемента на странице
         try:
@@ -46,7 +40,7 @@ class BasePage():
 
         return False
 
-# метод, который проверяет что, какой-то элемент исчезает
+# метод, который проверяет что, если  какой-то элемент исчезает
 #, то следует воспользоваться явным ожиданием вместе с функцией until_not, в зависимости от того, какой результат мы ожидаем
     def is_disappeared(self, how, what, timeout=4):
         try:
@@ -56,10 +50,17 @@ class BasePage():
             return False
         return True
 
+# метод для перехода в корзину по кнопке из Header
 
-    def go_to_basket (self):                    # метод для перехода в корзину по кнопке из Header
+    def go_to_basket (self):                
         look_in_basket = self.browser.find_element(*BasePageLocators.LOOK_IN_BASKET)
         look_in_basket.click()
+
+# проверка, что пользователь залогинен
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
 
 
 
