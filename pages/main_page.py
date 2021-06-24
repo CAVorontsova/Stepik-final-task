@@ -13,10 +13,10 @@ from pages.locators import MainPageLocators
 
 from pages.login_page import LoginPage
 
-class MainPage(BasePage):
-    def go_to_login_page(self):
-        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
-        login_link.click()
+#class MainPage(BasePage):
+    #def go_to_login_page(self):
+        #login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        #login_link.click()
 
 
 # Файлы base_page и main_page были сделаны чтобы разделить тесты и методы
@@ -26,5 +26,11 @@ class MainPage(BasePage):
 # А в файлах типа test_main_page, test_login_page - сами тесты
 
 
-    def should_be_login_link(self):
-        assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is not presented"
+
+class MainPage(BasePage):
+    def __init__(self, *args, **kwargs):
+        super(MainPage, self).__init__(*args, **kwargs)
+
+
+    #def should_be_login_link(self):
+        #assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is not presented"

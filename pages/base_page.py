@@ -1,4 +1,5 @@
 
+from pages.locators import BasePageLocators
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,6 +23,15 @@ class BasePage():
         except (NoSuchElementException):
             return False
         return True
+
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
 # метод, который проверяет, что элемент не появляется на странице в течение заданного времени.
 # Если элемент все таки появляется или сразу есть, то тест падает
 
