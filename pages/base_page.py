@@ -52,3 +52,13 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+
+
+    def go_to_basket (self):
+        look_in_basket = self.browser.find_element(*BasePageLocators.LOOK_IN_BASKET)
+        look_in_basket.click()
+
+
+
+
+    
